@@ -4,11 +4,12 @@
 }
 body{
     background-color: darkgreen;
+    
 }
 html{
     font-family: 'Noto Sans JP', sans-serif;
 }
-.quiz-section .container{
+.quiz-section{
     border: 1px solid burlywood;
     background-color: rgb(6, 39, 6);
     border-radius: 12px;
@@ -21,11 +22,13 @@ ul{
 }
 h1{
     text-align: center;
-    color: #fff;
+    color: green;
+    font-weight: bold
 }
-p{
+ .container-subject p{
     text-align: center;
-    color: #fff;
+    color: darkgrey;
+
 }
 li{
     text-align: center;
@@ -35,4 +38,28 @@ li{
     padding: 10px;
     border-radius: 10px;
     justify-content: space-between;
+}
+.question-container{
+    display: none;
+}
+.question-header{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.question-header{
+    color: goldenrod;
+}
+.btns{
+    color: burlywood;
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+.btns h5{
+    cursor: pointer;
+}
+.show{
+    display: block;
 }
