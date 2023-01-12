@@ -1,5 +1,5 @@
 const quizData = [{
-    subjects: 'Mathematics',
+    subject: 'Mathematics',
     questions:[
         {
         question:'what is 1+1 ?',
@@ -12,7 +12,7 @@ const quizData = [{
         correctOption:10
     },
     {
-        question: 'what is 20*2 ?',
+        question: "what is '20' * '2' ?",
         options:[200,100,40,20],
         correctOption:40
     },
@@ -74,3 +74,53 @@ const quizData = [{
     ]
 }
 ]
+
+const subjectContainer = document.querySelector('.container-subject');
+const subjectsList= document.querySelector('.subjects');
+const questionContainer = document.querySelector('.question-container');
+const questionList = document.querySelector('.question');
+const optionsContainer = document.querySelector('.answers');
+const scoreContainer = document.querySelector('.score');
+
+let subject = "";
+let score = 0;
+let index = 0;
+
+const getSubjects = () => {
+
+    const subjects = quizData.map((data) => {
+        return `
+        <li class="subject" id="${data.subject.toLowerCase()}">
+        ${data.subject}
+        </li>
+        `
+    }).join('');
+    subjectsList.innerHTML = subjects;
+
+    const listOfSubjects = document.querySelectorAll('.subject');
+    listOfSubjects.forEach((container) => {
+        container.addEventListener('click', (e) => {
+        subject = e.currentTarget.id;
+        subjectContainer.classList.replace('show', 'question-container');
+        questionContainer.classList.add('show');
+        getQuestion();
+
+        });
+    });
+};
+const getQuestion = () => {
+    scoreContainer.innerHTML = `<strong>Score:</strong> ${score}/4`
+
+    const subjectQuestions = quizData.find((data) => {
+        if(data.subject.toLowerCase() === subject) {
+            return data;
+        }
+        return;
+        
+    });
+    let { questions } = subjectQuestions;
+    let { question, options, correctOption } = questions[index];
+    questionContainer.innerHTML = `<strong>Question:</strong> ${question}`;
+}
+getSubjects()
+
