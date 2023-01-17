@@ -38,7 +38,6 @@ const quizData = [
           "Hypertext Markup Language",
           "Hypotext Markup Language",
           "Hypertext Makeup Language",
-
           "Hypertext Mockup Language",
         ],
         correctOption: "Hypertext Markup Language",
@@ -111,19 +110,14 @@ const questionList = document.querySelector(".question");
 const optionsContainer = document.querySelector(".answers");
 const scoreContainer = document.querySelector(".score");
 
-const previousBtn = document.querySelector(".pre-btn");
 const quitBtn = document.querySelector(".quit-btn");
 const nextBtn = document.querySelector(".next-btn");
 
-const wonIcon = document.querySelector("#won");
-const lostIcon = document.querySelector("#lost");
-const commentOne = document.querySelector(".comment1");
-const commentTwo = document.querySelector(".comment2");
-const nextSubject = document.querySelector(".next-subj");
-const yesBtn = document.querySelector("yes-btn");
-const noBtn = document.querySelector("no-btn");
-const finalScore = document.querySelector("final-score");
-const resultContainer = document.querySelector("result-container");
+const finalScore = document.querySelector(".final-score");
+const final = document.querySelector(".final");
+const successContainer = document.querySelector(".passed");
+const failureContainer = document.querySelector(".retake");
+const decisionContainer = document.querySelector(".decision");
 
 let subject = "";
 let score = 0;
@@ -164,33 +158,52 @@ const getQuestion = () => {
   let { questions } = subjectQuestions;
   let { question, options, correctOption } = questions[index];
   questionContainer.innerHTML = `<p class"question"><strong>Question:</strong> ${question}</p>`;
-  scoreContainer.innerHTML = `<strong>Score:</strong> ${score}/5`;
 
   const optionList = options
-    .map((option, question) => {
+    .map((option) => {
       return `
         <li class="option">
-        ${option}</li>
+        ${option} </li>
         `;
     })
     .join("");
   optionsContainer.innerHTML = optionList;
+
   const optionsList = document.querySelectorAll(".option");
+  optionsList.forEach((option) => {
+    option.addEventListener("click", (e) => {
+      handleClick(e, correctOption);
+    });
+  });
 
   //Note: handleClickFunc
+  const handleClick = (e, correctOption) => {
+    const infoContainer = e.currentTarget;
+    if (!acceptingAnswers) {
+      return;
+    }
+    acceptingAnswers = false;
+
+    if (infoContainer.innerText === correctOption.toString()) {
+      score++;
+      scoreContainer.innerHTML = `<p class="score"><strong>Score:</strong>${score}/5</p>`;
+    } else {
+      score.target;
+      scoreContainer.innerHTML = `<p class="score"><strong>Score:</strong>${score}/5</p>`;
+    }
+  };
+
   nextBtn.addEventListener("click", () => {
     index++;
+    acceptingAnswers = true;
     if (index > 4) {
       index = 4;
+
+      finalScore.textContent = score.toString();
     }
     getQuestion();
   });
-  previousBtn.addEventListener("click", () => {
-    if (index != 0) {
-      //still working on this
-    }
-    getQuestion();
-  });
+
   quitBtn.addEventListener("click", () => {
     subjectContainer.classList.add("show");
     questionsContainer.classList.remove("show");
