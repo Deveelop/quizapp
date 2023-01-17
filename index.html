@@ -27,35 +27,40 @@
       </div>
       <div class="question-container">
         <div class="question-header">
-          <p class="question"><strong>Question:</strong></p>
-          <p class="score"><strong>Score:</strong></p>
+          <p class="question"></p>
+          <p class="score"></p>
         </div>
         <ul class="answers">
           <li class="option"></li>
-          <li class="option"></li>
-          <li class="option"></li>
-          <li class="option"></li>
         </ul>
         <div class="btns">
-          <h5 class="pre-btn">Previous</h5>
           <h5 class="quit-btn">Quit</h5>
           <h5 class="next-btn">Next</h5>
         </div>
       </div>
-      <div class="result-container">
+      <div class="final">
         <div class="result">
-          <p class="final-score"><strong>Final Score:</strong> 5</p>
+          <p class="final-score"><strong>Final Score:</strong></p>
         </div>
-
-        <img src="./Accepted.png" id="won" />
-        <img src="./Declined.png" id="lost" />
-        <p class="comment1">Congratulations</p>
-        <p class="comment2">would you like to retake ?</p>
       </div>
-      <div class="decision-btns">
-        <h5 class="next-subj">Next Subject >></h5>
-        <h5 class="yes-btn">Yes</h5>
-        <h5 class="no-btn">NO</h5>
+      <div class="passed">
+        <div class="success-container">
+          <img src="./Accepted.png" id="won" />
+          <p class="comment1">Congratulations</p>
+          <h5 class="next-subj">Next Subject >></h5>
+        </div>
+      </div>
+      <div class="retake">
+        <div class="failure-container">
+          <img src="./Declined.png" id="lost" />
+          <p class="comment2">would you like to retake ?</p>
+        </div>
+      </div>
+      <div class="decision">
+        <div class="decision-btns">
+          <h5 class="yes-btn">Yes</h5>
+          <h5 class="no-btn">NO</h5>
+        </div>
       </div>
     </section>
     <script src="app.js"></script>
