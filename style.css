@@ -57,7 +57,7 @@ li {
 .btns {
   color: burlywood;
   display: flex;
-  justify-content: space-between;
+  justify-content: space-evenly;
   gap: 10px;
   flex-wrap: wrap;
 }
@@ -68,10 +68,7 @@ li {
   border-radius: 10px;
   padding: 5px;
 }
-.pre-btn:hover {
-  background-color: yellow;
-  color: black;
-}
+
 .quit-btn:hover {
   background-color: red;
   color: black;
@@ -86,29 +83,48 @@ li {
 .question {
   color: goldenrod;
 }
+
 #won {
   width: 100px;
   height: 100px;
+}
+.final {
   display: none;
 }
-.result-container {
+.passed {
+  display: none;
+}
+.retake {
+  display: none;
+}
+.decision {
+  display: none;
+}
+.result {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.success-container {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
 }
+.failure-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 #lost {
   width: 100px;
   height: 100px;
-  display: none;
 }
 .comment1 {
   color: greenyellow;
-  display: none;
 }
 .comment2 {
   color: red;
-  display: none;
 }
 .next-subj {
   color: burlywood;
@@ -117,7 +133,6 @@ li {
   border-radius: 12px;
   padding: 6px;
   cursor: pointer;
-  display: none;
 }
 .yes-btn {
   color: burlywood;
@@ -126,7 +141,6 @@ li {
   border-radius: 12px;
   padding: 6px;
   cursor: pointer;
-  display: none;
 }
 .no-btn {
   color: burlywood;
@@ -135,8 +149,8 @@ li {
   border-radius: 12px;
   padding: 6px;
   cursor: pointer;
-  display: none;
 }
+
 .decision-btns {
   display: flex;
   align-items: center;
@@ -144,5 +158,4 @@ li {
 }
 .final-score {
   color: #fff;
-  display: none;
 }
