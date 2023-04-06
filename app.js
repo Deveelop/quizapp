@@ -121,7 +121,7 @@ const decisionContainer = document.querySelector(".decision");
 
 let subject = "";
 let score = 0;
-let index = 0;
+var index = 0;
 acceptingAnswers = true;
 
 const getSubjects = () => {
@@ -179,9 +179,7 @@ const getQuestion = () => {
   //Note: handleClickFunc
   const handleClick = (e, correctOption) => {
     const infoContainer = e.currentTarget;
-    if (!acceptingAnswers) {
-      return;
-    }
+    
     acceptingAnswers = false;
 
     if (infoContainer.innerText === correctOption.toString()) {
@@ -194,11 +192,14 @@ const getQuestion = () => {
   };
 
   nextBtn.addEventListener("click", () => {
-    index++;
+  index ++;
+  
     acceptingAnswers = true;
-    if (index > 4) {
-      index = 4;
-
+    if (index >= 4) {
+       index = 4;
+      questionsContainer.classList.remove('show', '.passed');
+      successContainer.classList.add('show');
+      subjectContainer.classList.remove('show');
       finalScore.textContent = score.toString();
     }
     getQuestion();
